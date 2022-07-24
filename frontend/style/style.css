@@ -1,4 +1,131 @@
-html {
-    font-family: 'Roboto', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 16px;
 }
 
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* navbar */
+nav {
+  height: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0px 1px 5px;
+          box-shadow: 0px 1px 5px;
+  z-index: 1;
+}
+
+nav li {
+  display: inline;
+  padding: 0 20px 0 20px;
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+nav li:hover {
+  color: #FF2142;
+}
+
+nav img {
+  height: 100%;
+}
+
+/* hero container */
+#hero-container {
+  z-index: 0;
+  height: 90vh;
+  background-image: url("../assets/glass_railing.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#hero-title {
+  font-size: 3rem;
+  color: white;
+  text-shadow: 2px 2px 10px black;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+#contact-us-button {
+  width: 20%;
+  height: 50px;
+  margin-top: 20px;
+  color: white;
+  background-color: #ff2142;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.thin {
+  font-size: 1.2rem;
+  font-weight: 200;
+}
+
+#about-us-container {
+  height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#about-us-text-container, #about-us-photo {
+  width: 50%;
+  padding: 5%;
+}
+
+#about-us-photo img {
+  width: 100%;
+}
+
+#trusted-professionals {
+  margin-bottom: 5%;
+  font-size: 1rem;
+  color: #FF2142;
+}
+
+#about-us-title {
+  font-size: 2.5rem;
+}
+/*# sourceMappingURL=style.css.map */
