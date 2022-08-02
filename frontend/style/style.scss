@@ -24,6 +24,10 @@ a:active {
     cursor: pointer;
 }
 
+
+
+
+
 //buttons 
 .button {
     width: 20%;
@@ -301,7 +305,7 @@ nav img {
 #free-estimate-container {
     height: 100vh;
     width: 100vw;
-    background:url('../assets/Contact_us_backhround.jpg') no-repeat center ;
+    background:url('../assets/free_estimate_background.jpeg') no-repeat center ;
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -323,3 +327,58 @@ nav img {
     width: 300px;
 }
 
+//testemony cards
+
+.rating-icon {
+    width: 40px;
+}
+
+#testemony-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#testemony-container-text {
+    font-size: 3rem;
+    margin-top: 70px;
+    margin-bottom: 100px;
+}
+
+#testemony-cards {
+    width: 80%;
+    height: 300px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.testemony-card {
+    width:32%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    box-shadow: 1px 1px 10px;
+}
+
+.testemony-head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.testemony-text {
+    text-align: left;
+}
+
+//email form
+
+#contact-us-container {
+    height: 100vh;
+    width: 100vw;
+    background: url('../assets/Contact_us_backhround.jpg') no-repeat center ;;
+    background-size: cover;
+}
