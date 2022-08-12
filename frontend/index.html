@@ -13,9 +13,40 @@
 </head>
 <body>
     <div id="root">
+
+
+        <!-- mobile navbar -->
+        <div class="mobile-nav-container">
+
+           
+            <img src="./assets/logo.png" alt="crystal glazing logo">
+
+            <input type="checkbox" id="checkbox2" class="checkbox2 visuallyHidden">
+            <label for="checkbox2">
+                <div class="hamburger hamburger2">
+                    <span class="bar bar1"></span>
+                    <span class="bar bar2"></span>
+                    <span class="bar bar3"></span>
+                    <span class="bar bar4"></span>
+                </div>
+            </label>
+
+
+            <ul class="mobile-nav">
+                <a href="#hero-container"  rel="noopener noreferrer"><li class="link">HOME</li></a>
+                <a href="#our-services-container"  rel="noopener noreferrer" ><li class="link"> OUR SERVICES</li></a>
+                <a href="#portfolio-container"  rel="noopener noreferrer" ><li class="link">PORTFOLIO</li></a>
+                <a href="#contact-us-container"  rel="noopener noreferrer"><li class="link">CONTACT US</li></a>
+            </ul>
+            </div>
+    
+    
+
+            
+            
         <nav>
             <ul class="navbar navbar-left">
-                <a href="#hero-container"  rel="noopener noreferrer"><li class="link">HOME</li></a>
+                <a href="#hero-container"  rel="noopener noreferrer"><li >HOME</li></a>
                 <a href="#our-services-container"  rel="noopener noreferrer"><li>OUR SERVICES</li></a>
             </ul>
             <img src="./assets/logo.png" alt="crystal glazing logo">
@@ -26,7 +57,7 @@
         </nav>  
 
         <div id="hero-container">
-            <h1 id="hero-title">GLAZIN AND RAILING SERVICES</h1>
+            <h1 id="hero-title">GLAZING AND RAILING SERVICES</h1>
             <button id="contact-us-button" class="button"><span class="thin">CONTACT US TODAY</span></button>
         </div>
 
@@ -194,30 +225,18 @@
 
             <div id="contact-us-container">
 
-                {{msg}}
-                <form action="send" method="post">
-                    <p>
-                        <label>Name</label>
-                        <input type="text" name="name">
-                    </p>
-
-                    <p>
-                        <label>Email</label>
-                        <input type="text" name="email">
-                    </p>
-
-                    <p>
-                        <label>Phone</label>
-                        <input type="text" name="phone">
-                    </p>
-
-                    <p class="full">
-                        <label>Message</label>
-                        <textarea name="message" rows="10"></textarea>
-                    </p>
-                    <p class="full">
-                        <button class="submit">Submit</button>
-                    </p>
+                <form class="contact-form">
+                    <h1>Contact Us
+                    </h1>
+                    <div id="contact-info-container">
+                   <input type="text" id="name" placeholder="Full name" >
+                   <input type="email" id="email" placeholder="Email" >
+                   <input type="tel" id="phone" placeholder="Phone Number" ><br>
+                </div>
+            
+                   <textarea id="message" placeholder="Message" cols="30" rows="10" ></textarea><br>
+                   <input type="submit" class="button" value="Submit" >
+                    <p class="required-fields">Please fill all the fields</p>
                 </form>
             </div>
 

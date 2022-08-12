@@ -1,82 +1,53 @@
 const express = require('express')
-const bodyParser = require('body-parser')
-const exphbs = require('express-handlebars')
 const nodemailer = require('nodemailer')
-const path = require('path')
 
-const app = express()
+const app = express();
 
-//view engine
-app.engine('handlebars', exphbs.engine());
-app.set('view engine', 'handlebars')
+const PORT = process.env.PORT || 5000
 
-//body parser middleware
-app.use(bodyParser.urlencoded({extended:false}));
-app.use(bodyParser.json())
+//middleware
+app.use(express.static('../frontend')) 
+app.use(express.json())
 
-const PORT =  process.env.PORT || 5000
+ app.get('/', (req, res) => {
+  res.sendFile(__dirname + '../frontend/index.html')
+ })
 
-//Middleware
+ app.post('/', (req, res)=> {
+  console.log(req.body);
 
-app.use(express.static('../frontend'))
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
+    auth: {
+      user: 'mishaloskutov@gmail.com',
+      pass: 'ddbb dpnj tddw flll'
+    }
+  })
 
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '../frontend/idex.html', )
-})
+  const mailOptions = {
+    from: req.body.email,
+    to: 'info@loskutech.com',
+    subject: `Message from ${req.body.email}`,
+    text: `Message was sent by ${req.body.name}
+          Phone number is: ${req.body.phone}   
 
-app.post('/send', (req, res) => {
-    const output = `
-        <p> You have a new message </p>
-        <h3> Contact details </h3>
-        <ul>
-            <li> Name: ${req.body.name} </li>
-            <li> Email: ${req.body.email} </li>
-            <li> Phone: ${req.body.phone} </li>
-        </ul>
-        <h3> Message </h3>
-        <p>${req.body.message}</p>
-    `
+          ${req.body.message}
+      `
+  }
+  transporter.sendMail(mailOptions, (error, info) => {
+    if(error){
+      console.log(error)
+      res.send('error')
 
-   
-      
-        // create reusable transporter object using the default SMTP transport
-        let transporter = nodemailer.createTransport({
-          host: "smtp.ethereal.email",
-          port: 587,
-          secure: false, // true for 465, false for other ports
-          auth: {
-            user: testAccount.user, // generated ethereal user
-            pass: testAccount.pass, // generated ethereal password
-          },
-        });
-      
-        // send mail with defined transport object
-        let info = transporter.sendMail({
-          from: '"Fred Foo 👻" <foo@example.com>', // sender address
-          to: "bar@example.com, baz@example.com", // list of receivers
-          subject: "Hello ✔", // Subject line
-          text: "Hello world?", // plain text body
-          html: "<b>Hello world?</b>", // html body
-        });
-      
-        console.log("Message sent: %s", info.messageId);
-        // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-      
-        // Preview only available when sending through an Ethereal account
-        console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-        // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-      
-      
-      main().catch(console.error);
-})
+    } else {
+      console.log('Email was send successfully')
+      res.send('success')
+    }
+  })
+ })
 
-
-
-
-
-
-app.listen(PORT, ()=> {
-    console.log(`Server running om port ${PORT}`)
-})
-
-
+ app.listen(PORT, ()=> {
+  console.log('server running')
+ })
