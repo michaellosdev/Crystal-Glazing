@@ -1,5 +1,6 @@
 const express = require('express')
 const nodemailer = require('nodemailer')
+const dotenv = require('dotenv').config()
 
 const app = express();
 
@@ -22,7 +23,7 @@ app.use(express.json())
     secure: true,
     auth: {
       user: 'mishaloskutov@gmail.com',
-      pass: 'ddbb dpnj tddw flll'
+      pass: process.env.PASSWORD
     }
   })
 
